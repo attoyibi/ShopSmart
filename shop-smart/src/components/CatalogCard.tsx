@@ -7,7 +7,6 @@ import imageCatalog from "@/../../public/assets/images/hero-image.png"
 interface CatalogCardProps {
     title: string;
     description: string;
-    imageSrc: string; // imageSrc is expected to be a string URL
     href: string;
 }
 const CatalogCard: React.FC<CatalogCardProps> = ({ title, description, href }) => {
