@@ -10,12 +10,12 @@ const CatalogCard = ({ title, description, href }) => {
             <Link href={href} className={styles.imageWrapper}>
                 <Image
                     className={styles.image}
-                    src={imageCatalog} // Use the imageSrc prop here
+                    src={imageCatalog}
                     alt={title}
                     layout="responsive"
-                    width={500} // Atur width sesuai dengan proporsi
-                    height={300} // Atur height sesuai dengan proporsi
-                    objectFit="cover" // Agar gambar menutupi seluruh area tanpa distorsi
+                    width={500}
+                    height={300}
+                    objectFit="cover"
                 />
             </Link>
             <div className={styles.content}>
