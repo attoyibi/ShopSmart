@@ -11,51 +11,50 @@ const Catalog = () => {
         {
             title: 'Product 1',
             description: 'This is the description for product 1.',
-            imageSrc: imageCatalog,
             href: '/product/1'
         },
         // Duplicate product entries for demonstration
         {
             title: 'Product 2',
             description: 'This is the description for product 2.',
-            imageSrc: imageCatalog,
+
             href: '/product/2'
         },
         {
             title: 'Product 3',
             description: 'This is the description for product 3.',
-            imageSrc: imageCatalog,
+
             href: '/product/3'
         },
         {
             title: 'Product 1',
             description: 'This is the description for product 1.',
-            imageSrc: imageCatalog,
+
             href: '/product/1'
         },
         // Duplicate product entries for demonstration
         {
             title: 'Product 2',
             description: 'This is the description for product 2.',
-            imageSrc: imageCatalog,
+
             href: '/product/2'
         },
         {
             title: 'Product 3',
             description: 'This is the description for product 3.',
-            imageSrc: imageCatalog,
+
             href: '/product/3'
         },
         {
             title: 'Product 2',
             description: 'This is the description for product 2.',
-            imageSrc: imageCatalog,
+
             href: '/product/2'
         },
         {
             title: 'Product 3',
             description: 'This is the description for product 3.',
-            imageSrc: imageCatalog,
+
             href: '/product/3'
         },
         // Add more products as needed
