@@ -1,0 +1,80 @@
+// /components/HeroSection.module.scss
+@import '../variables.scss'; // Import variabel yang sudah dibuat sebelumnya
+
+.hero {
+    display: flex;
+    align-items: center; // Pusatkan konten secara vertikal
+    justify-content: space-between; // Pisahkan konten kiri dan kanan
+    max-width: 1440px; // Lebar maksimum
+    width: 100%; // Full width
+    margin: 0 auto; // Center pada layar
+    padding: $spacing-lg; // Padding untuk seluruh bagian
+    position: relative; // Mengatur posisi untuk elemen di bawah
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/assets/images/hero-background.jpg'); // Ganti dengan gambar latar belakang
+        background-size: cover; // Menutupi seluruh bagian
+        background-position: center; // Pusatkan gambar
+        opacity: 0.5; // Opasitas untuk efek overlay
+        z-index: -1; // Tempatkan di belakang konten
+    }
+
+    .heroContent {
+        z-index: 1; // Pastikan konten berada di depan
+        max-width: 600px; // Lebar maksimum untuk konten
+        color: $text-color; // Warna teks
+
+        h1 {
+            font-size: $font-size-lg; // Ukuran font untuk judul
+            margin-bottom: $spacing-md; // Jarak bawah
+        }
+
+        p {
+            font-size: $font-size-base; // Ukuran font untuk deskripsi
+            margin-bottom: $spacing-lg; // Jarak bawah
+        }
+    }
+
+    .ctaButton {
+        display: inline-block;
+        background-color: $primary-color; // Warna latar belakang tombol
+        color: $white; // Warna teks tombol
+        padding: $spacing-sm $spacing-md; // Padding tombol
+        border-radius: $border-radius-md; // Sudut melengkung tombol
+        text-decoration: none; // Hilangkan garis bawah
+        transition: background-color 0.3s; // Transisi untuk hover
+
+        &:hover {
+            background-color: lighten($primary-color, 10%); // Efek hover
+        }
+    }
+
+    .heroImage {
+        z-index: 1; // Pastikan gambar berada di depan
+        flex: 1; // Mengambil ruang yang tersisa
+        max-width: 100%; // Maksimal lebar gambar
+    }
+}
+
+// Media Queries untuk responsivitas
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; // Stack konten vertikal
+        text-align: center; // Pusatkan teks pada layar kecil
+
+        .heroContent {
+            max-width: 100%; // Lebar maksimum untuk konten pada layar kecil
+            padding: $spacing-sm; // Padding untuk konten
+        }
+
+        .heroImage {
+            margin-top: $spacing-md; // Jarak atas antara teks dan gambar
+        }
+    }
+}

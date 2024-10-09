@@ -1,0 +1,86 @@
+// src/styles/components/CatalogCard.module.scss
+
+@import '../variables.scss'; // Make sure your variables.scss contains the necessary variable definitions
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  box-shadow: $box-shadow-light;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  text-decoration: none;
+  color: $text-color;
+  max-width: 100%; // Ensures the card doesn't exceed its container
+
+  &:hover,
+  &:focus {
+    box-shadow: $box-shadow-medium;
+    transform: translateY(-5px);
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  padding-top: 56.25%; // Aspect ratio 16:9
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.content {
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; // Allow content to take available space
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: bold;
+  color: $text-color;
+  margin-bottom: $spacing-sm;
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $muted-text-color;
+  line-height: $line-height-base;
+  flex-grow: 1; // Allow description to grow to fill space
+}
+
+.detailButton {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md; // Use variables for padding
+  background-color: $primary-color; // Use primary color variable
+  color: $white; // Use text color variable
+  border-radius: $border-radius-md; // Use border radius variable
+  text-decoration: none; // No underline on text
+  transition: background-color 0.3s ease; // Smooth transition on hover
+
+  &:hover {
+    background-color: $primary-color-hover; // Use dark primary color on hover
+  }
+}
+
+// Responsive design adjustments
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%; // Full width on smaller screens
+  }
+}

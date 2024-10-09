@@ -1,0 +1,47 @@
+
+// Color Palette
+$primary-color: #f25c42;         // Main brand color (Tomato)
+$primary-color-hover: #973625;         // Main brand color (Tomato)
+$secondary-color: #4CAF50;       // Accent color (Green)
+$background-color: #f9f9f9;      // Background color for pages
+$text-color: #333333;            // Default text color
+$muted-text-color: #757575;      // Muted text color for secondary info
+$border-color: #e0e0e0;          // Border color for cards and inputs
+$white: #fff;
+$gray-light: #f0f0f0;
+
+// Typography
+$font-family-base: 'Roboto', sans-serif; // Base font family
+$font-size-base: 16px;               // Base font size
+$font-size-lg: 1.25rem;              // Large font size
+$font-size-sm: 0.875rem;              // Small font size
+$line-height-base: 1.5;              // Base line height
+
+// Spacing
+$spacing-unit: 16px;                  // Base spacing unit for margins/paddings
+$spacing-xs: $spacing-unit * 0.25;    // Extra small spacing
+$spacing-sm: $spacing-unit * 0.5;     // Small spacing
+$spacing-md: $spacing-unit;           // Medium spacing
+$spacing-lg: $spacing-unit * 1.5;     // Large spacing
+$spacing-xl: $spacing-unit * 2;       // Extra large spacing
+
+// Breakpoints for responsive design
+$breakpoint-xs: 0;                     // Extra small devices (phones)
+$breakpoint-sm: 576px;                 // Small devices (tablets)
+$breakpoint-md: 768px;                 // Medium devices (desktops)
+$breakpoint-lg: 992px;                 // Large devices (larger desktops)
+$breakpoint-xl: 1200px;                // Extra large devices (high resolution)
+
+// Shadows
+$box-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1); // Light shadow for cards
+$box-shadow-medium: 0 2px 5px rgba(0, 0, 0, 0.15); // Medium shadow for hover effects
+
+// Z-index
+$z-index-dropdown: 1000;              // Z-index for dropdowns
+$z-index-modal: 1050;                 // Z-index for modals
+$z-index-tooltip: 2000;               // Z-index for tooltips
+
+// Border Radius
+$border-radius-sm: 4px;               // Small border radius for buttons and inputs
+$border-radius-md: 8px;               // Medium border radius for cards
+$border-radius-lg: 16px;              // Large border radius for modals

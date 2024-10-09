@@ -1,0 +1,63 @@
+// Import necessary files
+@import 'variables';
+@import 'mixins';
+@import "~@fontsource/sarabun/index.css";
+// Global styles
+body {
+  font-family: 'Sarabun', sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+// Link styles
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    @include transition(color);
+  }
+}
+
+// Button styles
+.button {
+  background-color: $primary-color;
+  color: white;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  @include box-shadow('medium');
+  @include transition(background-color);
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+// Card styles
+.card {
+  background-color: white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  @include box-shadow('light');
+
+  // Responsive design
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-lg;
+  }
+}

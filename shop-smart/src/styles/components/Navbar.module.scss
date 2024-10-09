@@ -1,0 +1,184 @@
+// src/components/Navbar.module.scss
+@import '../variables.scss'; // Import variables
+.backgroundNavbar{
+    background-color: $white; // Navbar background
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Add shadow effect
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: $spacing-md;
+
+    .logo {
+        display: flex;
+        flex-direction: column; // Set flex direction to column
+        align-items: center; // Center items horizontally
+        text-align: center; // Center the text
+    
+        a {
+            display: flex;
+            flex-direction: column; // Stack logo and text vertically
+            align-items: center; // Center items
+            text-decoration: none; // Remove underline
+            color: inherit; // Inherit color from parent
+    
+            .logoImage {
+                width: 50px; // Maintain a fixed width for the logo image
+                height: auto; // Keep aspect ratio
+                margin-bottom: 5px; // Space between logo image and text
+            }
+    
+            span {
+                font-size: 1.5rem; // Default font size for larger screens
+                color: $text-color; // Logo text color
+                @media (max-width: 768px) {
+                    font-size: 1.2rem; // Adjust font size for smaller screens
+                }
+                @media (max-width: 480px) {
+                    font-size: 1rem; // Further adjust font size for very small screens
+                }
+            }
+        }
+    }
+
+    .navLinks {
+        list-style: none;
+        display: flex;
+        justify-content: center; // Center the nav links
+        flex-grow: 1; // Ensure it takes up remaining space
+
+        li {
+            margin: 0 $spacing-lg;
+
+            a {
+                text-decoration: none;
+                color: $text-color;
+
+                &:hover {
+                    color: lighten($primary-color, 10%);
+                }
+            }
+        }
+    }
+
+    .navRight {
+        display: flex;
+        align-items: center;
+    
+        .searchForm {
+            display: flex; // Use flex to align input and button horizontally
+            align-items: center;
+            margin-right: $spacing-md; // Space between search form and next icon
+            border: 1px solid $gray-light; // Add border to form for a defined look
+            border-radius: 5px; // Rounded corners
+            overflow: hidden; // Ensure no overflow from the rounded corners
+    
+            input {
+                border: none; // Remove default border
+                padding: $spacing-sm; // Padding for the input
+                outline: none; // Remove outline on focus
+                flex: 1; // Allow input to grow and fill available space
+    
+                &::placeholder {
+                    color: $gray-light; // Style the placeholder text
+                }
+            }
+    
+            button {
+                // background-color: $primary-color; // Match the button's color with the theme
+                border: none; // Remove border
+                padding: $spacing-sm; // Padding for button
+                cursor: pointer; // Change cursor to pointer
+                border-radius: 0; // Remove border radius to create a seamless look
+                transition: background-color 0.3s; // Smooth transition on hover
+    
+                &:hover {
+                    background-color: lighten($gray-light, 20%); // Change background on hover
+                }
+            }
+        }
+    
+        .icon {
+            margin-left: $spacing-lg; // Space between icons
+            cursor: pointer;
+    
+            a {
+                color: $text-color;
+            }
+        }
+    }
+    
+}
+
+.burgerIcon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center; 
+        position: relative; // Make room for hamburger icon
+        
+        .menuToggle {
+            display: block;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            // position: absolute;
+            top: 15px;
+            // right: 20px;
+        }
+
+        .navLinks {
+            display: none; // Hide by default
+            flex-direction: column; // Stack links vertically
+            width: 100%; // Full-width background
+            position: absolute; // Position absolute to float below the navbar
+            top: 100%; // Align to the bottom of the navbar
+            left: 0; // Align to the left edge
+            background-color: $white; // Full-width background
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Add shadow for depth
+            z-index: 100; // Ensure it is above other elements
+            border-radius: $border-radius-md;
+            &.active {
+                display: flex; // Display links when active
+            }
+        
+            li {
+                margin: $spacing-md 0; // Space between links
+                padding: $spacing-sm; // Add padding for clickable area
+                transition: background-color 0.3s; // Smooth transition for hover
+        
+                a {
+                    text-decoration: none; // Remove underline
+                    color: $text-color; // Link color
+        
+                    &:hover {
+                        background-color: lighten($gray-light, 10%); // Change background on hover
+                    }
+                }
+            }
+        }
+        
+        .burgerIcon {
+            display: block;
+            color: $text-color;
+        }
+        .navRight {
+            // Ensure navRight is displayed properly in mobile view
+            margin-left: auto; // Align icons to the right
+            .searchForm {
+                margin-right: $spacing-sm; // Adjust margin for smaller screens
+            }
+            .icon {
+                margin-left: $spacing-md; // Space between icons
+            }
+        }
+        
+    }
+}

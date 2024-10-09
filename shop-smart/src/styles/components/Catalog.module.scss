@@ -1,0 +1,46 @@
+// src/styles/components/Catalog.module.scss
+@import '../variables.scss'; // Make sure your variables.scss contains the necessary variable definitions
+
+.catalogLayout {
+  display: flex; // Use flexbox for layout
+  width: 100%; // Full width of the container
+  max-width: 1440px; // Maximum width for the catalog layout
+  margin: 0 auto; // Center the layout
+  
+}
+
+.menu {
+  flex: 0 0 30%; // 30% width for the menu
+  padding: 20px; // Add some padding
+  background-color: #f9f9f9; // Light background for the menu
+  border-right: 1px solid #ddd; // Optional border for visual separation
+
+  // Optional styles for responsiveness
+  @media (max-width: 768px) {
+    flex: 0 0 100%; // Full width on smaller screens
+    border-right: none; // Remove border for smaller screens
+  }
+}
+
+.productGrid {
+  flex: 1; // Take the remaining width for product cards
+  display: grid; // Use grid for product cards
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Responsive grid layout
+  gap: 20px; // Space between cards
+  padding: 20px; // Add some padding around the grid
+
+  // Optional styles for responsiveness
+  @media (max-width: 768px) {
+    padding: 10px; // Reduce padding on smaller screens
+  }
+}
+
+.catalogContainer{
+  // display: flex;
+  // flex-direction: column;
+  padding: $spacing-unit;
+}
+
+
+
+

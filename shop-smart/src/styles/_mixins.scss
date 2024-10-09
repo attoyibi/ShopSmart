@@ -1,0 +1,38 @@
+// Import variables
+@import 'variables';
+
+// Mixin for flexbox centering
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin for responsive font size
+@mixin responsive-font($size) {
+  font-size: $size;
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: $size * 1.1; // Increase font size for small devices
+  }
+
+  @media (min-width: $breakpoint-md) {
+    font-size: $size * 1.2; // Further increase for medium devices
+  }
+}
+
+// Mixin for box shadows
+@mixin box-shadow($level) {
+  @if $level == 'light' {
+    box-shadow: $box-shadow-light;
+  } @else if $level == 'medium' {
+    box-shadow: $box-shadow-medium;
+  } @else {
+    box-shadow: none;
+  }
+}
+
+// Mixin for transitions
+@mixin transition($properties, $duration: 0.3s, $easing: ease) {
+  transition: $properties $duration $easing;
+}

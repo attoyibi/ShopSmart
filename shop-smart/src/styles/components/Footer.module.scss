@@ -1,0 +1,62 @@
+// /styles/Footer.module.scss
+@import '../variables.scss'; // Pastikan untuk mengimpor variabel yang kamu gunakan
+
+.footer {
+    background-color: $white; // Latar belakang footer
+    color: $text-color; // Warna teks
+    padding: $spacing-lg 0; // Padding atas dan bawah
+    text-align: center; // Rata tengah untuk teks
+
+    .container {
+        display: flex;
+        justify-content: space-around; // Mengatur spasi di antara elemen
+        flex-wrap: wrap; // Pastikan elemen membungkus untuk layar kecil
+        max-width: 1200px; // Atur lebar maksimum
+        margin: 0 auto; // Pusatkan konten
+        padding: $spacing-md; // Tambahkan padding di dalam container
+    }
+
+    h4 {
+        margin-bottom: $spacing-md; // Tambahkan jarak di bawah judul
+        font-size: $font-size-lg; // Ukuran font untuk judul
+        color: $primary-color; // Warna judul
+    }
+
+    p {
+        margin-bottom: $spacing-sm; // Tambahkan jarak di bawah paragraf
+        font-size: $font-size-base; // Ukuran font untuk paragraf
+        color: $muted-text-color; // Warna teks yang dimudarkan
+    }
+
+    .links {
+        ul {
+            list-style: none; // Hilangkan titik pada list
+            padding: 0; // Hilangkan padding default
+
+            li {
+                margin: $spacing-sm 0; // Tambahkan jarak antara link
+            }
+
+            a {
+                text-decoration: none; // Hilangkan garis bawah
+                color: $text-color; // Warna link
+
+                &:hover {
+                    color: lighten($primary-color, 10%); // Efek hover pada link
+                }
+            }
+        }
+    }
+
+    .footerBottom {
+        background-color: $gray-light; // Warna latar belakang footer bawah
+        padding: $spacing-sm 0; // Tambahkan padding di atas dan bawah
+        margin-top: $spacing-lg; // Jarak antara container dan footer bawah
+
+        p {
+            margin: 0; // Hilangkan margin pada paragraf
+            font-size: $font-size-sm; // Ukuran font untuk footer bawah
+            color: $muted-text-color; // Warna teks footer bawah
+        }
+    }
+}
