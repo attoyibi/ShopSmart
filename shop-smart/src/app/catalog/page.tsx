@@ -3,7 +3,7 @@
 import MainLayout from '@/layouts/MainLayout';
 import CatalogCard from '@/components/CatalogCard';
 import styles from '@/styles/components/Catalog.module.scss'; // Import SCSS untuk tata letak
-import imageCatalog from "@/../../public/assets/images/hero-image.png";
+
 import Link from 'next/link';
 
 const Catalog = () => {
