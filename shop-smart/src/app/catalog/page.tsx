@@ -83,7 +83,6 @@ const Catalog = () => {
                                 key={index}
                                 title={product.title}
                                 description={product.description}
-                                // imageSrc={product.imageSrc}
                                 href={product.href}
                             />
                         ))}
