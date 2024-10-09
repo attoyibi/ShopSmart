@@ -4,7 +4,13 @@ import styles from '@/styles/components/CatalogCard.module.scss';
 import Link from 'next/link';
 import Image from 'next/image'; // Import Image dari Next.js
 import imageCatalog from "@/../../public/assets/images/hero-image.png"
-const CatalogCard = ({ title, description, href }) => {
+interface CatalogCardProps {
+    title: string;
+    description: string;
+    imageSrc: string; // imageSrc is expected to be a string URL
+    href: string;
+}
+const CatalogCard: React.FC<CatalogCardProps> = ({ title, description, href }) => {
     return (
         <div className={styles.card}>
             <Link href={href} className={styles.imageWrapper}>
