@@ -3,13 +3,14 @@ import React from 'react';
 import styles from '@/styles/components/CatalogCard.module.scss';
 import Link from 'next/link';
 import Image from 'next/image'; // Import Image dari Next.js
-import imageCatalog from "@/../../public/assets/images/hero-image.png"
+// import imageCatalog from "@/../../public/assets/images/hero-image.png"
 interface CatalogCardProps {
     title: string;
     description: string;
     href: string;
+    imageCatalog: string;
 }
-const CatalogCard: React.FC<CatalogCardProps> = ({ title, description, href }) => {
+const CatalogCard: React.FC<CatalogCardProps> = ({ title, description, href, imageCatalog }) => {
     return (
         <div className={styles.card}>
             <Link href={href} className={styles.imageWrapper}>

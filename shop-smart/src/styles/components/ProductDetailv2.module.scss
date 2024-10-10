@@ -1,0 +1,98 @@
+.navForSlider {
+  .swiper-slide {
+    height: auto;
+    width: auto;
+    cursor: pointer;
+
+    img {
+      border: 2px solid transparent;
+      border-radius: 10px;
+    }
+  }
+
+  .swiper-slide-thumb-active img {
+    border-color: rgb(79, 70, 229);
+  }
+}
+
+.sliderWrapper {
+  .swiper-wrapper {
+    height: auto;
+  }
+}
+
+.productDetails {
+  padding: 24px;
+
+  h2 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold;
+    font-size: 3xl;
+    line-height: 10;
+    color: #1f2937; /* Text-gray-900 */
+    margin-bottom: 0.5rem;
+  }
+
+  .productCategory {
+    font-size: 1rem;
+    color: #6b7280; /* Text-gray-500 */
+  }
+
+  .priceDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h5 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 2xl;
+      color: #1f2937; /* Text-gray-900 */
+    }
+
+    span {
+      color: #6366f1; /* Indigo-600 */
+    }
+  }
+
+  .ratingButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .rating {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #fff;
+    }
+  }
+
+  .sizeOptions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    button {
+      border: 1px solid #d1d5db; /* Border-gray-300 */
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      color: #1f2937; /* Text-gray-900 */
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .quantitySelector {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+
+    input {
+      text-align: center;
+      border: 1px solid #9ca3af; /* Border-gray-400 */
+      width: 60px;
+      padding: 0.5rem;
+    }
+  }
+}

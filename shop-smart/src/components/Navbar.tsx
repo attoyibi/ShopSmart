@@ -36,15 +36,15 @@ const Navbar = () => {
                     </form>
 
                     {/* Cart Icon */}
-                    <div className={styles.icon}>
+                    {/* <div className={styles.icon}>
                         <Link href="/cart">
                             <Image src="/assets/icons/cart-icon.png" alt="Cart" width={30} height={30} />
                         </Link>
-                    </div>
+                    </div> */}
 
                     {/* Account Icon */}
                     <div className={styles.icon}>
-                        <Link href="/account">
+                        <Link href="/login">
                             <Image src="/assets/icons/account-icon.png" alt="Account" width={30} height={30} />
                         </Link>
                     </div>

@@ -1,0 +1,121 @@
+@import '../variables.scss'; // Menggunakan variabel yang telah didefinisikan
+
+.productDetailContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $background-color;
+  padding: $spacing-lg;
+  max-width: 1440px; // Maksimal lebar 1440px
+  margin: 0 auto; // Tengah halaman
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    padding: $spacing-md;
+  }
+}
+
+.imageWrapper {
+  flex: 0 0 50%; // Lebar 50% untuk bagian gambar
+  padding: $spacing-md;
+  background-color: $gray-light;
+  border-radius: $border-radius-md;
+
+  @media (max-width: $breakpoint-md) {
+    flex: 0 0 100%; // Penuh pada layar kecil
+    margin-bottom: $spacing-md;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-md;
+    object-fit: cover;
+    box-shadow: $box-shadow-light;
+  }
+}
+
+.productInfo {
+  flex: 1;
+  padding: $spacing-md;
+
+  h1 {
+    font-size: $font-size-lg;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: $spacing-sm;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: $font-size-base;
+    color: $muted-text-color;
+    line-height: $line-height-base;
+    margin-bottom: $spacing-lg;
+  }
+
+  .variants {
+    margin-bottom: $spacing-lg;
+
+    h4 {
+      font-size: $font-size-lg;
+      font-weight: bold;
+      color: $text-color;
+      margin-bottom: $spacing-sm;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        font-size: $font-size-sm;
+        color: $text-color;
+        margin-bottom: $spacing-xs;
+        background-color: $gray-light;
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $border-radius-sm;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: $spacing-md;
+
+    .buyButton {
+      padding: $spacing-sm $spacing-lg;
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: $border-radius-md;
+      font-size: $font-size-base;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $primary-color-hover;
+      }
+    }
+
+    .addToCartButton {
+      padding: $spacing-sm $spacing-lg;
+      background-color: $secondary-color;
+      color: $white;
+      border: none;
+      border-radius: $border-radius-md;
+      font-size: $font-size-base;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ const Footer = () => {
                     <h4>About Us</h4>
                     <p>We are dedicated to providing the best products to our customers.</p>
                 </div>
-                <div className={styles.links}>
+                {/* <div className={styles.links}>
                     <h4>Quick Links</h4>
                     <ul>
                         <li><Link href="/catalog">Catalo</Link></li>
@@ -19,7 +19,7 @@ const Footer = () => {
                         <li><Link href="/contact">Contact</Link></li>
                         <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                     </ul>
-                </div>
+                </div> */}
                 <div className={styles.contact}>
                     <h4>Contact Us</h4>
                     <p>Email: support@shopsmart.com</p>
