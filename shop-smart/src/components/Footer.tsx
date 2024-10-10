@@ -1,7 +1,6 @@
 // /components/Footer.js
 import React from 'react';
 import styles from '../styles/components/Footer.module.scss';
-import Link from 'next/link'; // Import Link dari Next.js
 
 const Footer = () => {
     return (

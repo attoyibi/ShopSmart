@@ -30,6 +30,7 @@ export const useProductStore = create<ProductState>((set) => ({
             const data = await response.json();
             set({ products: data, isLoading: false });
         } catch (error) {
+            console.error(error)
             set({ error: 'Failed to fetch products', isLoading: false });
         }
     },
