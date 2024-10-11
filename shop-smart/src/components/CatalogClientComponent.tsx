@@ -7,8 +7,6 @@ import styles from '@/styles/components/Catalog.module.scss';
 
 const CatalogClientComponent = () => {
     const { products, setProducts, fetchProducts, isLoading, error, category } = useProductStore();
-
-    console.log("product dalam catalog client component", products.toString());
     useEffect(() => {
         // if (initialProducts.length > 0) {
         //     setProducts(initialProducts);

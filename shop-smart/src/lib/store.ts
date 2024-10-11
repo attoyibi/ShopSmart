@@ -36,9 +36,7 @@ export const useProductStore = create<ProductState>((set, get) => ({
         try {
             const response = await fetch(`${apiConfig.baseUrl}/${category}`);
             const data = await response.json();
-            console.log('dari zustand = ' + data)
             set({ products: data, isLoading: false });
-            console.log(data);
         } catch (error) {
             console.error(error);
             set({ error: 'Failed to fetch products', isLoading: false });

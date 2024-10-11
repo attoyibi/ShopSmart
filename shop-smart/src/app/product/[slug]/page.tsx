@@ -11,7 +11,6 @@ interface Params {
 
 // Komponen server untuk mengambil produk berdasarkan slug
 const fetchProduct = async (slug: string): Promise<Product | null> => {
-    console.log('slug =', slug);
     try {
         const product: Product = await fetchProductData(slug);
         return product; // Mengembalikan data produk langsung

@@ -12,7 +12,7 @@ interface Params {
 
 // Komponen server untuk mengambil produk berdasarkan slug
 const fetchProduct = async (slug: string): Promise<Product | null> => {
-    console.log('slug =', slug);
+
     try {
         const product: Product = await fetchProductData(slug);
         return product; // Mengembalikan data produk langsung
@@ -34,15 +34,6 @@ const ProductDetail = async ({ params }: { params: Params }) => {
     );
 };
 
-// Fungsi untuk mengonfigurasi ulang di build time dengan ISR
-// export async function generateStaticParams() {
-//     const res = await fetch(`${apiConfig.baseUrl}/food`);
-//     const products: Product[] = await res.json();
-
-//     return products.map((product) => ({
-//         slug: product.id.toString(),
-//     }));
-// }
 export async function generateStaticParams() {
     try {
         const res = await fetch(`${apiConfig.baseUrl}/product`);

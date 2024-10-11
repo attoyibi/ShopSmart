@@ -12,9 +12,6 @@ interface CatalogCardProps {
     price: string;
 }
 const CatalogCard: React.FC<CatalogCardProps> = ({ title, description, href, imageCatalog, price }) => {
-
-    console.log('title catalog =', imageCatalog);
-
     return (
         <div className={styles.card}>
             <Link style={{ textDecoration: "none", color: "inherit" }} href={href}>
