@@ -6,5 +6,5 @@ export interface Product {
     productAdj: string;
     productMaterial: string;
     images: string;
-    category: string; // Add any other missing fields
+    category: string;
 }

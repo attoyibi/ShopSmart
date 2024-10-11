@@ -1,16 +1,16 @@
 import { create } from 'zustand';
 import apiConfig from '@/config/apiConfig';
-
-interface Product {
-    id: string;
-    productDescription: string;
-    price: string;
-    Product: string;
-    productAdj: string;
-    productMaterial: string;
-    images: string;
-    category: string;
-}
+import { Product } from '@/lib/types'
+// interface Product {
+//     id: string;
+//     productDescription: string;
+//     price: string;
+//     Product: string;
+//     productAdj: string;
+//     productMaterial: string;
+//     images: string;
+//     category: string;
+// }
 
 interface ProductState {
     products: Product[];
