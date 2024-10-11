@@ -3,21 +3,23 @@ import { fetchProductData } from '@/lib/api';
 import ProductDetailClient from '@/components/ProductDetailClient';
 import apiConfig from '@/config/apiConfig';
 
-// Definisi tipe untuk produk
+
+
+// Definisi tipe untuk params
+interface Params {
+    slug: string;
+}
+// Tipe produk yang digunakan di halaman ProductDetail
 interface Product {
     id: number;
     name: string;
     description: string;
     price: number;
     imageUrl: string;
-    // Tambahkan properti lain sesuai dengan data produk Anda
+    productAdj: string;
+    productMaterial: string;
+    images: string[];
 }
-
-// Definisi tipe untuk params
-interface Params {
-    slug: string;
-}
-
 // Komponen server untuk mengambil produk berdasarkan slug
 const fetchProduct = async (slug: string): Promise<Product | null> => {
     console.log('slug =', slug);
@@ -36,9 +38,20 @@ const ProductDetail = async ({ params }: { params: Params }) => {
 
     if (!product) return <div>Product not found</div>;
 
+    // Sesuaikan produk agar memenuhi tipe yang diharapkan oleh ProductDetailClient
+    const formattedProduct = {
+        name: product.name,
+        price: product.price,
+        description: product.description,
+        imageUrl: product.imageUrl,
+        productAdj: "Soft, Comfortable", // Dummy data
+        productMaterial: "Cotton", // Dummy data
+        images: [product.imageUrl], // Menggunakan imageUrl dari API
+    };
+
     return (
         <MainLayout>
-            <ProductDetailClient initialProduct={product} />
+            <ProductDetailClient initialProduct={formattedProduct} />
         </MainLayout>
     );
 };
