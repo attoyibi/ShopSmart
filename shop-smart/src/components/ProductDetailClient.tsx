@@ -1,25 +1,16 @@
 "use client";
-
 import { useEffect } from 'react';
 import { useProductStore } from '@/lib/store';
 import Image from 'next/image';
 import styles from '@/styles/components/ProductDetail.module.scss';
-
 import Link from 'next/link';
-import useImageSwitcher from '@/hooks/useImageSwitcher'; // Import custom hook
-// Definisikan tipe untuk produk
-interface Product {
-    Product: string;
-    price: string;
-    productDescription: string;
-    productAdj: string;
-    productMaterial: string;
-    images: string[]; // Asumsi bahwa produk memiliki array URL gambar
-}
-// Definisikan tipe untuk props komponen
+import useImageSwitcher from '@/hooks/useImageSwitcher';
+import { Product } from '@/lib/types';
+
 interface ProductDetailClientProps {
     initialProduct: Product;
 }
+
 const ProductDetailClient = ({ initialProduct }: ProductDetailClientProps) => {
     const { products, setProducts } = useProductStore();
 
@@ -31,7 +22,6 @@ const ProductDetailClient = ({ initialProduct }: ProductDetailClientProps) => {
 
     const product = products.length > 0 ? products[0] : null;
 
-    // Custom hook to handle image switching
     const { currentImage, handleImageClick } = useImageSwitcher(product?.images);
 
     if (!product) return <div>Product not found</div>;
@@ -43,7 +33,6 @@ const ProductDetailClient = ({ initialProduct }: ProductDetailClientProps) => {
                 <div className={styles.backButton}>
                     <Link href='/catalog' className={styles.backLink}>
                         <span className={styles.backIcon}>
-                            {/* Ikon Panah Kiri (SVG) */}
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -61,54 +50,47 @@ const ProductDetailClient = ({ initialProduct }: ProductDetailClientProps) => {
                         Back to catalog
                     </Link>
                 </div>
+            </div>
 
-                <div className={styles.imageWrapper}>
-                    {/* image utama yang berubah */}
-                    <div className={styles.mainImage}>
-                        <Image
-                            src={currentImage} // Menggunakan currentImage dari custom hook
-                            alt={product.Product}
-                            layout="responsive"
-                            width={600}
-                            height={400}
-                            objectFit="cover"
-                        />
-                    </div>
+            <div className={styles.imageWrapper}>
+                <div className={styles.mainImage}>
+                    <Image
+                        src={currentImage}
+                        alt={product.Product}
+                        layout="responsive"
+                        width={600}
+                        height={400}
+                        objectFit="cover"
+                    />
                 </div>
+            </div>
 
-                <div>
-                    {/* image variant */}
-                    <div className={styles.imageVariant}>
-                        {/* Varian gambar pertama */}
-                        <Image
-                            src={product.images} // Ganti dengan URL gambar yang sesuai
-                            alt={product.Product}
-                            width={100}
-                            height={80}
-                            className={styles.imgHover}
-                            onClick={() => handleImageClick(product.images)} // Saat gambar diklik
-                        />
-
-                        {/* Varian gambar kedua */}
-                        <Image
-                            src={'https://loremflickr.com/cache/resized/65535_53538657121_96031e3285_320_240_nofilter.jpg'} // URL varian gambar kedua
-                            alt={product.Product}
-                            width={100}
-                            height={80}
-                            className={styles.imgHover}
-                            onClick={() => handleImageClick('https://loremflickr.com/cache/resized/65535_53538657121_96031e3285_320_240_nofilter.jpg')} // Saat gambar diklik
-                        />
-
-                        {/* Varian gambar ketiga */}
-                        <Image
-                            src={'https://loremflickr.com/cache/resized/6134_5940078239_49dc72dcab_320_240_nofilter.jpg'} // URL varian gambar ketiga
-                            alt={product.Product}
-                            width={100}
-                            height={80}
-                            className={styles.imgHover}
-                            onClick={() => handleImageClick('https://loremflickr.com/cache/resized/6134_5940078239_49dc72dcab_320_240_nofilter.jpg')} // Saat gambar diklik
-                        />
-                    </div>
+            <div>
+                <div className={styles.imageVariant}>
+                    <Image
+                        src={product.images}
+                        alt={product.Product}
+                        width={100}
+                        height={80}
+                        className={styles.imgHover}
+                        onClick={() => handleImageClick(product.images)}
+                    />
+                    <Image
+                        src={'https://loremflickr.com/cache/resized/65535_53538657121_96031e3285_320_240_nofilter.jpg'}
+                        alt={product.Product}
+                        width={100}
+                        height={80}
+                        className={styles.imgHover}
+                        onClick={() => handleImageClick('https://loremflickr.com/cache/resized/65535_53538657121_96031e3285_320_240_nofilter.jpg')}
+                    />
+                    <Image
+                        src={'https://loremflickr.com/cache/resized/6134_5940078239_49dc72dcab_320_240_nofilter.jpg'}
+                        alt={product.Product}
+                        width={100}
+                        height={80}
+                        className={styles.imgHover}
+                        onClick={() => handleImageClick('https://loremflickr.com/cache/resized/6134_5940078239_49dc72dcab_320_240_nofilter.jpg')}
+                    />
                 </div>
             </div>
 
