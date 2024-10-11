@@ -7,7 +7,10 @@ export const fetchProductData = async (slug) => {
     const { category } = useProductStore.getState(); // Use getState to access the store
 
     const response = await fetch(`${apiConfig.baseUrl}/${category}/${slug}`);
-    console.log('respond dari fetchProduk data = ' + response)
+
+    console.log('respond dari fetchProduk data = ', response);
+    console.log('Response status:', response.status);
+    console.log('Response URL:', response.url);
     if (!response.ok) {
         throw new Error('Failed to fetch product data');
     }

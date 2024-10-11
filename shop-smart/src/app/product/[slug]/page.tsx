@@ -4,21 +4,6 @@ import { fetchProductData } from '@/lib/api';
 import ProductDetailClient from '@/components/ProductDetailClient';
 import apiConfig from '@/config/apiConfig';
 import { Product } from '@/lib/types'
-// Definisi tipe untuk produk
-// export interface Product {
-//     id?: number;                     // Optional property
-//     name?: string;                   // Optional property
-//     description?: string;            // Optional property
-//     price?: number;                  // Optional property
-//     imageUrl?: string;               // Optional property
-//     productAdj?: string;             // Optional property
-//     productMaterial?: string;        // Optional property
-//     images?: string[];               // Optional property
-//     productDescription?: string;     // Optional property
-//     Product?: string;                // Optional property
-//     category?: string;               // Optional property
-// }
-
 // Definisi tipe untuk params
 interface Params {
     slug: string;
