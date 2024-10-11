@@ -1,66 +1,44 @@
-import Image from 'next/image';
+
+import { useEffect, useRef } from 'react';
 import MainLayout from '@/layouts/MainLayout';
-import styles from '@/styles/components/ProductDetail.module.scss';
-// https://pagedone.io/blocks/e-commerce/product-overview
-// Membuat fungsi untuk fetch data produk
-async function getProduct(id: string) {
-    // Contoh fetch ke API, ganti dengan API yang sebenarnya
-    const product = {
-        id: id,
-        title: `Product ${id}`,
-        description: `This is the detailed description for product ${id}.`,
-        price: 49.99,
-        imageSrc: '/assets/images/hero-image.png', // Replace with actual image path
-        variants: ['Variant 1', 'Variant 2', 'Variant 3'],
-    };
-    return product;
-}
+import { fetchProductData } from '@/lib/api';
+import ProductDetailClient from '@/components/ProductDetailClient';
+import apiConfig from '@/config/apiConfig';
+import ImageZoom from '@/components/ImageZoom';
+// Komponen server untuk mengambil produk berdasarkan slug
+const fetchProduct = async (slug) => {
+    console.log('slug =', slug);
+    try {
+        const product = await fetchProductData(slug);
+        return product; // Return the product data directly
+    } catch (error) {
+        console.error(error); // Log any error that occurs
+        throw new Error('Failed to fetch product');
+    }
+};
 
-interface ProductDetailProps {
-    params: { id: string };
-}
+const ProductDetail = async ({ params }) => {
+    const product = await fetchProduct(params.slug);
 
-export default async function ProductDetail({ params }: ProductDetailProps) {
-    const product = await getProduct(params.id);
+    if (!product) return <div>Product not found</div>;
 
     return (
         <MainLayout>
-            <div className={styles.productDetailContainer}>
-                {/* Section Gambar Produk */}
-                <div className={styles.imageWrapper}>
-                    <Image
-                        src={product.imageSrc}
-                        alt={product.title}
-                        layout="responsive"
-                        width={600}
-                        height={400}
-                        objectFit="cover"
-                    />
-                </div>
-
-                {/* Informasi Detail Produk */}
-                <div className={styles.productInfo}>
-                    <h1 className={styles.title}>{product.title}</h1>
-                    <p className={styles.price}>${product.price.toFixed(2)}</p>
-                    <p className={styles.description}>{product.description}</p>
-
-                    {/* Variants Section */}
-                    <div className={styles.variants}>
-                        <h4>Available Variants:</h4>
-                        <ul>
-                            {product.variants.map((variant, index) => (
-                                <li key={index}>{variant}</li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Tombol Aksi */}
-                    <div className={styles.actions}>
-                        <button className={styles.buyButton}>Buy Now</button>
-                        <button className={styles.addToCartButton}>Add to Cart</button>
-                    </div>
-                </div>
-            </div>
+            <ProductDetailClient initialProduct={product} />
         </MainLayout>
     );
+};
+
+
+
+// Fungsi untuk mengonfigurasi ulang di build time dengan ISR
+export async function generateStaticParams() {
+    const res = await fetch(`${apiConfig.baseUrl}/product`);
+    const products = await res.json();
+
+    return products.map((product) => ({
+        slug: product.id.toString(),
+    }));
 }
+
+export default ProductDetail;

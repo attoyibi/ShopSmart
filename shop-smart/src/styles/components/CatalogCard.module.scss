@@ -56,6 +56,12 @@
   color: $text-color;
   margin-bottom: $spacing-sm;
 }
+.price {
+  font-size: 1.25rem; // Font size for the price
+  font-weight: bold; // Make it bold
+  color: $primary-color; // A green color to signify price
+  margin: 8px 0; // Add margin for spacing
+}
 
 .description {
   font-size: $font-size-sm;

@@ -1,0 +1,48 @@
+@import '../variables'; // Mengimpor variabel SCSS
+
+.container {
+  border-radius: 5px;
+  background-color: $gray-light; // Warna latar belakang
+  padding: $spacing-lg; // Padding di dalam kontainer
+  box-shadow: $box-shadow-light; // Bayangan ringan
+  margin: $spacing-lg auto; // Margin auto untuk sentralisasi
+  max-width: 600px; // Lebar maksimum kontainer
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%; // Lebar 100%
+  padding: $spacing-sm; // Padding
+  border: 1px solid $border-color; // Border
+  border-radius: $border-radius-sm; // Border radius
+  box-sizing: border-box; // Box-sizing
+  margin-top: $spacing-xs; // Margin atas
+  margin-bottom: $spacing-md; // Margin bawah
+  resize: vertical; // Resize hanya vertikal untuk textarea
+}
+
+.submit {
+    display: inline-block;
+    background-color: $primary-color; // Warna latar belakang tombol
+    color: $white; // Warna teks tombol
+    padding: $spacing-sm $spacing-md; // Padding tombol
+    border-radius: $border-radius-md; // Sudut melengkung tombol
+    text-decoration: none; // Hilangkan garis bawah
+    transition: background-color 0.3s; // Transisi untuk hover
+
+    &:hover {
+        background-color: lighten($primary-color, 10%); // Efek hover
+    }
+}
+
+.label {
+  font-family: $font-family-base; // Font dasar
+  font-size: $font-size-base; // Ukuran font dasar
+  color: $text-color; // Warna teks
+}
+
+.error {
+  color: red; // Warna merah untuk pesan kesalahan
+  font-size: $font-size-sm; // Ukuran font kecil
+}

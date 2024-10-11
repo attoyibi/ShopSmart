@@ -36,3 +36,44 @@
 @mixin transition($properties, $duration: 0.3s, $easing: ease) {
   transition: $properties $duration $easing;
 }
+
+// Mixin for title styles
+@mixin title-text($size: $font-size-lg, $color: $text-color) {
+  @include responsive-font($size);
+  color: $color;
+  font-weight: bold;
+  margin-bottom: $spacing-sm;
+}
+
+// Mixin for description text styles
+@mixin description-text($size: $font-size-base, $color: $muted-text-color) {
+  @include responsive-font($size);
+  color: $color;
+  line-height: $line-height-base;
+  margin-bottom: $spacing-md;
+}
+
+// Mixin for button styles
+@mixin button-style($bg-color: $primary-color, $text-color: $white) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+
+  @include transition(all);
+  
+  &:hover {
+    background-color: $primary-color-hover;
+  }
+}
+
+// Mixin for card styles
+@mixin card-style($shadow: 'light', $padding: $spacing-md) {
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: $padding;
+  @include box-shadow($shadow);
+}

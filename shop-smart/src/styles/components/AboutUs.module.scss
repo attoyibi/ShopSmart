@@ -1,0 +1,45 @@
+@import '../variables';
+
+// Kontainer utama untuk komponen About Us
+.aboutUsContainer {
+  background-color: $background-color; // Warna latar belakang
+  padding: $spacing-lg;               // Padding di dalam kontainer
+  border-radius: $border-radius-md;   // Border radius untuk sudut yang lembut
+  box-shadow: $box-shadow-light;      // Tambahkan bayangan ringan
+}
+
+// Gaya untuk judul utama
+.title {
+  font-family: $font-family-base;     // Font dasar
+  font-size: $font-size-lg;           // Ukuran font besar
+  color: $primary-color;              // Warna utama
+  margin-bottom: $spacing-md;         // Margin bawah
+}
+
+// Gaya untuk deskripsi
+.description {
+  font-family: $font-family-base;     // Font dasar
+  font-size: $font-size-base;         // Ukuran font dasar
+  color: $text-color;                 // Warna teks
+  line-height: $line-height-base;     // Tinggi garis
+  margin-bottom: $spacing-lg;         // Margin bawah
+}
+
+// Gaya untuk subjudul
+.subTitle {
+  font-family: $font-family-base;     // Font dasar
+  font-size: $font-size-lg;           // Ukuran font besar
+  color: $secondary-color;            // Warna aksen
+  margin-top: $spacing-lg;            // Margin atas
+  margin-bottom: $spacing-sm;         // Margin bawah
+}
+
+// Daftar nilai
+.valuesList {
+  list-style-type: disc;              // Tipe daftar
+  padding-left: $spacing-md;          // Padding kiri
+  color: $muted-text-color;           // Warna teks redup
+}
+.hightConten{
+height: 55vh;
+}

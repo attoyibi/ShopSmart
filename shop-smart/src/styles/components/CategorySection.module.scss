@@ -1,0 +1,87 @@
+@import '../variables.scss';
+
+.categoryContainer {
+    padding: 20px;
+    // background-color: #f9f9f9;
+    border-radius: 10px;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+}
+
+.categoryTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.categoryIcons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 10px;
+
+    .categoryIcon {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, transform 0.2s;
+        padding: 10px;
+        border-radius: 8px;
+
+        &:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.05);
+        }
+
+        img {
+            width: $icon-size;
+            height: $icon-size;
+        }
+
+        p {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// Media Query untuk ukuran kecil
+@media (max-width: 768px) {
+    .categoryIcons {
+        .categoryIcon {
+            img {
+                width: $icon-size * 0.8; // Ukuran 80% dari ukuran default
+                height: $icon-size * 0.8; // Ukuran 80% dari ukuran default
+            }
+
+            p {
+                font-size: 0.8rem; // Mengurangi ukuran font
+            }
+        }
+    }
+    .categoryContainer {
+
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .categoryIcons {
+        .categoryIcon {
+            img {
+                width: $icon-size * 0.7; // Ukuran 60% dari ukuran default
+                height: $icon-size * 0.5; // Ukuran 60% dari ukuran default
+            }
+
+            // p {
+            //     font-size: 0.7rem; // Mengurangi ukuran font lebih kecil
+            // }
+        }
+    }
+    .categoryContainer {
+
+        margin-bottom: 20px;
+    }
+}

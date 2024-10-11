@@ -15,10 +15,12 @@
 }
 
 .imageWrapper {
-  flex: 0 0 50%; // Lebar 50% untuk bagian gambar
+  // flex: 0 0 75%; // Lebar 50% untuk bagian gambar
   padding: $spacing-md;
-  background-color: $gray-light;
+  // background-color: $gray-light;
   border-radius: $border-radius-md;
+  overflow: hidden; // Menghindari gambar melampaui batas
+  position: relative; // Mengatur posisi relatif untuk elemen anak
 
   @media (max-width: $breakpoint-md) {
     flex: 0 0 100%; // Penuh pada layar kecil
@@ -31,12 +33,23 @@
     border-radius: $border-radius-md;
     object-fit: cover;
     box-shadow: $box-shadow-light;
+    transition: transform 0.3s ease; // Transisi untuk efek zoom
+
+    &.zoomed {
+      position: absolute; // Mengatur posisi absolut
+      top: 0; // Posisi atas
+      left: 0; // Posisi kiri
+      transform: scale(2); // Mengatur skala untuk zoom
+      pointer-events: none; // Menghindari interaksi mouse pada gambar zoom
+    }
   }
 }
+
 
 .productInfo {
   flex: 1;
   padding: $spacing-md;
+  margin-top : 30px;
 
   h1 {
     font-size: $font-size-lg;
@@ -118,4 +131,71 @@
       }
     }
   }
+}
+.backButtonWrapper{
+ display: flex;
+ flex-direction: column;
+}
+
+.zoomableImage {
+  transition: transform 0.3s ease; // Transisi halus saat zoom
+}
+
+.zoomed {
+  transform: scale(2); // Mengatur skala untuk efek zoom
+  pointer-events: none; // Menghindari interaksi mouse pada gambar yang diperbesar
+}
+
+.backButton {
+  display: flex;
+  align-items: center; // Untuk menyelaraskan ikon dan teks secara vertikal
+  // margin-bottom: $spacing-sm; // Tambahkan margin bawah jika diperlukan
+
+  .backLink {
+      display: flex; // Memastikan ikon dan teks dalam satu baris
+      align-items: center; // Menyelaraskan secara vertikal
+      text-decoration: none; // Menghapus garis bawah dari link
+      color: $text-color; // Atau warna lain sesuai dengan tema
+      padding: $spacing-sm $spacing-lg; // Padding untuk tampilan yang lebih baik
+      
+      border-radius: $border-radius-md; // Sudut yang dibulatkan
+      transition: background-color 0.3s ease; // Transisi halus untuk hover
+
+      &:hover {
+          background-color: $gray-light; // Warna saat hover
+      }
+  }
+
+  .backIcon {
+      margin-right: $spacing-xs; // Jarak antara ikon dan teks
+  }
+}
+
+.imageVariant {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: $spacing-xs;
+  justify-content: space-around;
+  // box-shadow: $box-shadow-medium;
+  img {
+    width: 20%; /* Gambar akan mengisi 100% dari elemen pembungkus */
+    height: auto; /* Agar tinggi gambar disesuaikan secara proporsional */
+    border-radius: $border-radius-md; /* Membuat sudut tumpul (opsional) */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+  }
+}
+
+.imgHover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Transisi halus saat hover
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1); // Zoom-in saat hover
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Tambah bayangan saat hover
+  }
+}
+
+.mainImage{
+  min-width: 600px;
+  min-height: 400px;
 }

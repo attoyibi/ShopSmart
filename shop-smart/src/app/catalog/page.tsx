@@ -1,102 +1,27 @@
-// pages/catalog/index.tsx
-'use client'
-import { useEffect } from 'react';
-import { useProductStore } from '@/lib/store';
 import MainLayout from '@/layouts/MainLayout';
-import CatalogCard from '@/components/CatalogCard';
-import styles from '@/styles/components/Catalog.module.scss'; // Import SCSS untuk tata letak
+import styles from '@/styles/components/Catalog.module.scss';
 import Link from 'next/link';
-const Catalog = () => {
-    // const products = [
-    //     {
-    //         title: 'Product 1',
-    //         description: 'This is the description for product 1.',
-    //         href: '/product/1'
-    //     },
-    //     // Duplicate product entries for demonstration
-    //     {
-    //         title: 'Product 2',
-    //         description: 'This is the description for product 2.',
+import CatalogClientComponent from '@/components/CatalogClientComponent';
+import apiConfig from '@/config/apiConfig';
+import CategorySection from '@/components/CategorySection';
+// Fetch data directly in the server component
+// const fetchProducts = async () => {
+//     const response = await fetch(apiConfig.baseUrl);
+//     console.log(`ini dalam fetch product = ${response}`);
+//     if (!response.ok) throw new Error('Failed to fetch products');
+//     return response.json();
+// };
 
-    //         href: '/product/2'
-    //     },
-    //     {
-    //         title: 'Product 3',
-    //         description: 'This is the description for product 3.',
-
-    //         href: '/product/3'
-    //     },
-    //     {
-    //         title: 'Product 1',
-    //         description: 'This is the description for product 1.',
-
-    //         href: '/product/1'
-    //     },
-    //     // Duplicate product entries for demonstration
-    //     {
-    //         title: 'Product 2',
-    //         description: 'This is the description for product 2.',
-
-    //         href: '/product/2'
-    //     },
-    //     {
-    //         title: 'Product 3',
-    //         description: 'This is the description for product 3.',
-
-    //         href: '/product/3'
-    //     },
-    //     {
-    //         title: 'Product 2',
-    //         description: 'This is the description for product 2.',
-
-    //         href: '/product/2'
-    //     },
-    //     {
-    //         title: 'Product 3',
-    //         description: 'This is the description for product 3.',
-
-    //         href: '/product/3'
-    //     },
-    //     // Add more products as needed
-    // ];
-
-    const { products, fetchProducts, isLoading, error } = useProductStore();
-
-    useEffect(() => {
-        fetchProducts();
-    }, [fetchProducts]);
-
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
-
+const Catalog = async () => {
+    // const initialProducts = await fetchProducts();
+    // console.log('catalog sebelum di kirim' + initialProducts);
     return (
         <MainLayout>
-            <div className={styles.catalogLayout}>
-                <div className={styles.menu}>
-                    {/* Menu content goes here */}
-                    <h2>Menu</h2>
-                    <ul>
-                        <li><Link href="/catalog">Catalog</Link></li>
-                        <li><Link href="/about">About Us</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
-                        <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-                    </ul>
-                </div>
-                <div className={styles.catalogContainer}>
-                    <div style={{ width: '1000px' }}>
-                        <h1 className={styles.title}>NameCatalog</h1>
-                    </div>
-                    <div className={styles.productGrid}>
-                        {products.map((product, index) => (
-                            <CatalogCard
-                                key={index}
-                                title={product.Product}
-                                description={product.productDescription}
-                                href={`product/${product.id}`}
-                                imageCatalog={product.images}
-                            />
-                        ))}
-                    </div>
+            <div className={styles.catalogContainer}>
+                {/* make icon with text in here */}
+                <div className={styles.catalogLayout}>
+                    <CategorySection />
+                    <CatalogClientComponent />
                 </div>
             </div>
         </MainLayout>
