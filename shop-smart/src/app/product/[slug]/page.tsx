@@ -3,7 +3,6 @@ import MainLayout from '@/layouts/MainLayout';
 import { fetchProductData } from '@/lib/api';
 import ProductDetailClient from '@/components/ProductDetailClient';
 import apiConfig from '@/config/apiConfig';
-// import ImageZoom from '@/components/ImageZoom';
 
 // Definisi tipe untuk produk
 interface Product {
