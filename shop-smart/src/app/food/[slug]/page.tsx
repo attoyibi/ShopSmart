@@ -14,7 +14,7 @@ interface Params {
 const fetchProduct = async (slug: string): Promise<Product | null> => {
     console.log('slug =', slug);
     try {
-        const product = await fetchProductData(slug);
+        const product: Product = await fetchProductData(slug);
         return product; // Mengembalikan data produk langsung
     } catch (error) {
         console.error(error); // Mencetak log kesalahan

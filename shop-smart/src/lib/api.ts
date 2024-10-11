@@ -20,29 +20,27 @@
 // src/lib/api.ts
 import apiConfig from "@/config/apiConfig";
 import { useProductStore } from "@/lib/store";
-
-interface Product {
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-    imageUrl: string;
-    productAdj: string;
-    productMaterial: string;
-    images: string[];
-    category: string;
-}
+import { Product } from '@/lib/types'
+// interface Product {
+//     id: string;
+//     name: string;
+//     description: string;
+//     price: number;
+//     imageUrl: string;
+//     productAdj: string;
+//     productMaterial: string;
+//     images: string[];
+//     category: string;
+// }
 
 // Mock data for build time testing
 const mockProduct: Product = {
     id: '1',
-    name: 'Mock Product',
-    description: 'This is a mock product description.',
-    price: 100,
-    imageUrl: 'https://example.com/image.jpg',
+    productDescription: 'This is a mock product description.',
+    price: '100',
+    images: 'https://example.com/image.jpg',
     productAdj: 'Mock Adjective',
     productMaterial: 'Mock Material',
-    images: ['https://example.com/image.jpg'],
     category: 'mock-category',
 };
 
