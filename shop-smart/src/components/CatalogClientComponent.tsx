@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useProductStore } from '@/lib/store';
 import CatalogCard from '@/components/CatalogCard';
 import styles from '@/styles/components/Catalog.module.scss';
-
+import CatalogSkeleton from './CatalogSkeleton';
 const CatalogClientComponent = () => {
     const { products, setProducts, fetchProducts, isLoading, error, category } = useProductStore();
     useEffect(() => {
@@ -15,7 +15,7 @@ const CatalogClientComponent = () => {
         // }
     }, [setProducts, fetchProducts]);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <p><CatalogSkeleton /></p>;
     if (error) return <p>{error}</p>;
     if (!products || products.length === 0) return <p>No products available</p>;
 
