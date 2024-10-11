@@ -42,6 +42,7 @@ const mockProduct: Product = {
     productAdj: 'Mock Adjective',
     productMaterial: 'Mock Material',
     category: 'mock-category',
+    Product: 'product name 1'
 };
 
 export const fetchProductData = async (slug: string): Promise<Product> => {
