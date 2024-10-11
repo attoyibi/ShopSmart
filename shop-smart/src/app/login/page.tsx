@@ -10,8 +10,6 @@ const LoginPage = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Logika login bisa ditambahkan di sini
-        console.log({ email, password });
     };
 
     return (

@@ -54,10 +54,6 @@ const Contact: React.FC = () => {
             setErrors(validationErrors);
             return;
         }
-
-        // Simulate form submission
-        console.log('Form submitted:', formData);
-
         // Reset form data
         setFormData({ firstname: '', lastname: '', country: '', subject: '' });
     };
