@@ -1,23 +1,37 @@
-
-import { useEffect, useRef } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import { fetchProductData } from '@/lib/api';
 import ProductDetailClient from '@/components/ProductDetailClient';
 import apiConfig from '@/config/apiConfig';
-import ImageZoom from '@/components/ImageZoom';
+
+// Definisi tipe untuk produk
+interface Product {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    imageUrl: string;
+    // Tambahkan properti lain sesuai dengan data produk Anda
+}
+
+// Definisi tipe untuk params
+interface Params {
+    slug: string;
+}
+
 // Komponen server untuk mengambil produk berdasarkan slug
-const fetchProduct = async (slug) => {
+const fetchProduct = async (slug: string): Promise<Product | null> => {
     console.log('slug =', slug);
     try {
         const product = await fetchProductData(slug);
-        return product; // Return the product data directly
+        return product; // Mengembalikan data produk langsung
     } catch (error) {
-        console.error(error); // Log any error that occurs
+        console.error(error); // Mencetak log kesalahan
         throw new Error('Failed to fetch product');
     }
 };
 
-const ProductDetail = async ({ params }) => {
+// Komponen server-side untuk detail produk
+const ProductDetail = async ({ params }: { params: Params }) => {
     const product = await fetchProduct(params.slug);
 
     if (!product) return <div>Product not found</div>;
@@ -29,12 +43,10 @@ const ProductDetail = async ({ params }) => {
     );
 };
 
-
-
 // Fungsi untuk mengonfigurasi ulang di build time dengan ISR
 export async function generateStaticParams() {
     const res = await fetch(`${apiConfig.baseUrl}/product`);
-    const products = await res.json();
+    const products: Product[] = await res.json();
 
     return products.map((product) => ({
         slug: product.id.toString(),
