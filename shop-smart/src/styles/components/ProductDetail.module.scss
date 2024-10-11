@@ -204,12 +204,12 @@
 
 
   @media (max-width: $breakpoint-md) {
-    max-width: 400px;
+    max-width: auto;
     max-height: auto;
   }
 
   @media (max-width: $breakpoint-sm) {
-    max-width: 300px;
+    max-width: auto;
     max-height: auto;
   }
 }
