@@ -1,8 +1,8 @@
 import MainLayout from '@/layouts/MainLayout';
 import styles from '@/styles/components/Catalog.module.scss';
-import Link from 'next/link';
+// import Link from 'next/link';
 import CatalogClientComponent from '@/components/CatalogClientComponent';
-import apiConfig from '@/config/apiConfig';
+// import apiConfig from '@/config/apiConfig';
 import CategorySection from '@/components/CategorySection';
 // Fetch data directly in the server component
 // const fetchProducts = async () => {
