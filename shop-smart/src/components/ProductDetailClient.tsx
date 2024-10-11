@@ -1,14 +1,17 @@
 "use client";
-
 import { useEffect } from 'react';
 import { useProductStore } from '@/lib/store';
 import Image from 'next/image';
 import styles from '@/styles/components/ProductDetail.module.scss';
-import ImageZoom from './ImageZoom';
 import Link from 'next/link';
-import useImageSwitcher from '@/hooks/useImageSwitcher'; // Import custom hook
+import useImageSwitcher from '@/hooks/useImageSwitcher';
+import { Product } from '@/lib/types';
 
-const ProductDetailClient = ({ initialProduct }) => {
+interface ProductDetailClientProps {
+    initialProduct: Product;
+}
+
+const ProductDetailClient = ({ initialProduct }: ProductDetailClientProps) => {
     const { products, setProducts } = useProductStore();
 
     useEffect(() => {
@@ -19,7 +22,6 @@ const ProductDetailClient = ({ initialProduct }) => {
 
     const product = products.length > 0 ? products[0] : null;
 
-    // Custom hook to handle image switching
     const { currentImage, handleImageClick } = useImageSwitcher(product?.images);
 
     if (!product) return <div>Product not found</div>;

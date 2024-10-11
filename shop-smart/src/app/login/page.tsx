@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link'; // Import Link dari Next.js
 import styles from '@/styles/components/Login.module.scss';
-import MainLayout from '@/layouts/MainLayout'; // Menggunakan layout yang sudah dibuat sebelumnya
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');

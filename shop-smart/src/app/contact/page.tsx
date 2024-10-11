@@ -1,24 +1,44 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import styles from '@/styles/components/Contact.module.scss';
 import MainLayout from '@/layouts/MainLayout';
-const Contact = () => {
-    const [formData, setFormData] = useState({
+
+// Definisikan tipe untuk form data
+interface FormData {
+    firstname: string;
+    lastname: string;
+    country: string;
+    subject: string;
+}
+
+// Definisikan tipe untuk error messages
+interface FormErrors {
+    firstname?: string;
+    lastname?: string;
+    country?: string;
+    subject?: string;
+}
+
+const Contact: React.FC = () => {
+    const [formData, setFormData] = useState<FormData>({
         firstname: '',
         lastname: '',
         country: '',
         subject: '',
     });
-    const [errors, setErrors] = useState({});
 
-    const handleChange = (e) => {
+    const [errors, setErrors] = useState<FormErrors>({});
+
+    // Tipe event handler untuk perubahan input
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>): void => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
         setErrors((prev) => ({ ...prev, [name]: '' })); // Clear error on change
     };
 
-    const validate = () => {
-        const newErrors = {};
+    // Fungsi validasi untuk memeriksa data form
+    const validate = (): FormErrors => {
+        const newErrors: FormErrors = {};
         if (!formData.firstname) newErrors.firstname = 'First name is required';
         if (!formData.lastname) newErrors.lastname = 'Last name is required';
         if (!formData.country) newErrors.country = 'Country is required';
@@ -26,7 +46,8 @@ const Contact = () => {
         return newErrors;
     };
 
-    const handleSubmit = (e) => {
+    // Tipe event handler untuk submit
+    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
@@ -36,6 +57,7 @@ const Contact = () => {
 
         // Simulate form submission
         console.log('Form submitted:', formData);
+
         // Reset form data
         setFormData({ firstname: '', lastname: '', country: '', subject: '' });
     };

@@ -30,7 +30,7 @@ const CategorySection = () => {
                 </div>
 
                 {/* Kategori Fashion */}
-                <div className={styles.categoryIcon} onClick={() => handleCategoryClick('Food')}>
+                <div className={styles.categoryIcon} onClick={() => handleCategoryClick('food')}>
                     <Image src="/assets/icons/food.png" alt="Food" width={40} height={40} />
                     <p>food</p>
                 </div>

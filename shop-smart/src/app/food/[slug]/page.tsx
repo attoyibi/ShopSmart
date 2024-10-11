@@ -1,9 +1,10 @@
-// import { useEffect, useRef } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import { fetchProductData } from '@/lib/api';
 import ProductDetailClient from '@/components/ProductDetailClient';
 import apiConfig from '@/config/apiConfig';
-import { Product } from '@/lib/types'
+import { Product } from '@/lib/types';
+
+
 // Definisi tipe untuk params
 interface Params {
     slug: string;
@@ -26,7 +27,6 @@ const ProductDetail = async ({ params }: { params: Params }) => {
     const product = await fetchProduct(params.slug);
 
     if (!product) return <div>Product not found</div>;
-
     return (
         <MainLayout>
             <ProductDetailClient initialProduct={product} />
@@ -36,7 +36,7 @@ const ProductDetail = async ({ params }: { params: Params }) => {
 
 // Fungsi untuk mengonfigurasi ulang di build time dengan ISR
 // export async function generateStaticParams() {
-//     const res = await fetch(`${apiConfig.baseUrl}/product`);
+//     const res = await fetch(`${apiConfig.baseUrl}/food`);
 //     const products: Product[] = await res.json();
 
 //     return products.map((product) => ({
@@ -52,9 +52,8 @@ export async function generateStaticParams() {
             slug: product.id.toString(),
         }));
     } catch (error) {
-        console.error('Failed to fetch products:', error);
+        console.error('Failed to fetch products generateStaticParams:', error);
         return [];
     }
 }
-
 export default ProductDetail;
