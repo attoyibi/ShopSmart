@@ -35,13 +35,26 @@ const ProductDetail = async ({ params }: { params: Params }) => {
 };
 
 // Fungsi untuk mengonfigurasi ulang di build time dengan ISR
-export async function generateStaticParams() {
-    const res = await fetch(`${apiConfig.baseUrl}/product`);
-    const products: Product[] = await res.json();
+// export async function generateStaticParams() {
+//     const res = await fetch(`${apiConfig.baseUrl}/product`);
+//     const products: Product[] = await res.json();
 
-    return products.map((product) => ({
-        slug: product.id.toString(),
-    }));
+//     return products.map((product) => ({
+//         slug: product.id.toString(),
+//     }));
+// }
+export async function generateStaticParams() {
+    try {
+        const res = await fetch(`${apiConfig.baseUrl}/product`);
+        const products: Product[] = await res.json();
+
+        return products.map((product) => ({
+            slug: product.id.toString(),
+        }));
+    } catch (error) {
+        console.error('Failed to fetch products:', error);
+        return [];
+    }
 }
 
 export default ProductDetail;
