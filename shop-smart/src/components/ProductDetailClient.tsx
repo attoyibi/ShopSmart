@@ -4,11 +4,23 @@ import { useEffect } from 'react';
 import { useProductStore } from '@/lib/store';
 import Image from 'next/image';
 import styles from '@/styles/components/ProductDetail.module.scss';
-import ImageZoom from './ImageZoom';
+
 import Link from 'next/link';
 import useImageSwitcher from '@/hooks/useImageSwitcher'; // Import custom hook
-
-const ProductDetailClient = ({ initialProduct }) => {
+// Definisikan tipe untuk produk
+interface Product {
+    Product: string;
+    price: string;
+    productDescription: string;
+    productAdj: string;
+    productMaterial: string;
+    images: string[]; // Asumsi bahwa produk memiliki array URL gambar
+}
+// Definisikan tipe untuk props komponen
+interface ProductDetailClientProps {
+    initialProduct: Product;
+}
+const ProductDetailClient = ({ initialProduct }: ProductDetailClientProps) => {
     const { products, setProducts } = useProductStore();
 
     useEffect(() => {
